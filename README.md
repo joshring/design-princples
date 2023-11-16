@@ -20,10 +20,6 @@
 - In most cases you can use a function from a package to achieve what we have done with an interface.
 - Where we need generalisation we can pass a function as an argument to another function.
 
-## Separate validation from other logic
-- Validation is a complex operation so makes sense to separate from other logic, eg unmarshaling
-- Validation as close to the start of the handler as possible makes the rest of the logic easier
-  
 # Explicit inputs and outputs
 ## Function side effects should be visible, eg if changing an attribute on a struct
 ```Go
