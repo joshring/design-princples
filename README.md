@@ -10,6 +10,7 @@
 
 ## Prefer longer functions to fragmentation
 - Highly fragmented code is hard to read, small functions break the flow of the reader, especially when the function is far away and a comment can have the same effect as the function name without affecting the reader's flow.
+- Duplication is good if what you're duplicating isn't that complex. Overly DRY codebases are difficult to read as the code is highly fragmented and abstracted.
 
 ## Prefer standards to custom wrappers
 - Try to use more standard objects as they have more predictable behaviour, augment their behaviour by calling custom functions
