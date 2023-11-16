@@ -55,7 +55,7 @@ item.Name = functionNameHere(largeConfigObject)
 
 # Confidence driven testing
 - Unit or integration tests are most valuable where something is critically important or it is non-trivial to validate something is correct
-- Conversely if we accumalate tests which don't really give us real confidence, we just burden ourselves without much benefit
+- Conversely if we accumalate tests which don't really give us real confidence, we just burden ourselves with fragile test code to maintain
 
 
 
