@@ -29,7 +29,7 @@
 ```Go
 item.Name = functionNameHere(inputObject)
 ```
-makes it clearer than Name is being adjusted by than function than:
+makes it clearer than Name is being adjusted, than inside a struct's method with no obvious return:
 ```Go
 item.functionNameHere(inputObject)
 ```
