@@ -1,8 +1,9 @@
 # design-princples
 
 ## Code locality
-- locate code used together in the same file if possible
-- if not possible prefer the same package
+- Locate code used together in the same file if possible
+- If not possible prefer the same package
+- Avoid many small files as it makes code harder to read
 
 ## Use interfaces sparingly
 - In most cases we can use a function from a package to achieve what we have done with an interface.
