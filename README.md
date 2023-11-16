@@ -22,7 +22,7 @@
 ## Packages are for solving one particular problem
 - Try to limit the scope of a package to one problem, for instance "items" related code would naturally form a package, including what is currently in api and db
 - This makes it easier to find and reason about code related to a particular domain
-- The package forms an inituitive namespace so that naming becomes easier, eg `items.Validate` cannot be confused with `users.Validate()`
+- The package forms an inituitive namespace so that naming becomes easier, eg `items.Validate()` cannot be confused with `users.Validate()`
 - Packages make a clearer namespace than a struct
 - Prefer functions over methods on a struct, as then we have less noise from otherwise empty structs and it's clearer what the function's input is, see below.
 
@@ -57,7 +57,7 @@ item.Name = functionNameHere(largeConfigObject)
 
 # Confidence driven testing
 - Unit or integration tests are most valuable where something is critically important or it is non-trivial to validate something is correct
-- Conversely if we accumalate tests which don't really give us real confidence, we just burden ourselves with fragile test code to maintain
+- Conversely if we accumulate tests which don't really give us real confidence, we just burden ourselves with fragile test code to maintain
 
 # Tests requiring infrastructure
 - Prefer to avoid mocks, they can easily give false positives.
