@@ -16,6 +16,14 @@
 ## Prefer standards to custom wrappers
 - Try to use more standard objects as they have more predictable behaviour, augment their behaviour by calling custom functions
 
+## Use interfaces sparingly
+- In most cases you can use a function from a package to achieve what we have done with an interface.
+- Where we need generalisation we can pass a function as an argument to another function.
+
+## Separate validation from other logic
+- Validation is a complex operation so makes sense to separate from other logic, eg unmarshaling
+- Validation as close to the start of the handler as possible makes the rest of the logic easier
+  
 # Explicit inputs and outputs
 ## Function side effects should be visible, eg if changing an attribute on a struct
 ```Go
@@ -34,8 +42,21 @@ Rather than
 item.Name = functionNameHere(largeConfigObject)
 ```
 
-# Use interfaces sparingly
-- In most cases you can use a function from a package to achieve what we have done with an interface.
-- Where we need generalisation we can pass a function as an argument to another function.
+# Unit test logic
+- Unit testing IO is not particularly realstic and can easily diverge from reality and give false positives, as well as being more code to write and maintain
+- Unit testing logic gives confidence on tough to understand processing
+
+# Integration testing the API
+- Docker compose env started prior to running tests
+- Tests hit as close to real env as we can
+- Tests are quick as no network involved as all local in Docker
+- Stateful tests need set up and tare down steps which can be automated, eg DELETE, PUT
+- Non-Stateful tests could be done against a fixed set of data, eg GET
+
+# Confidence driven testing
+- Unit or integration tests are most valuable where something is critically important or it is non-trivial to validate something is correct
+- Conversely if we accumalate tests which don't really give us real confidence, we just burden ourselves without much benefit
+
+
 
  
