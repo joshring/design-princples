@@ -8,6 +8,9 @@
 - In most cases you can use a function from a package to achieve what we have done with an interface.
 - Where we need generalisation we can pass a function as an argument to another function.
 
+## Structs
+- If a struct has a single member, there is little value in the struct and it's likely adding noise
+
 ## Prefer longer functions to fragmentation
 - Highly fragmented code is hard to read, small functions break the flow of the reader, especially when the function is far away and a comment can have the same effect as the function name without affecting the reader's flow.
 - Duplication is good if what you're duplicating isn't that complex. Overly DRY codebases are difficult to read as the code is highly fragmented and abstracted.
