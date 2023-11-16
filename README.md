@@ -1,4 +1,4 @@
-# design-princples
+# Design Ideas
 
 ## Code locality
 - Locate code used together in the same file if possible
