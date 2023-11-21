@@ -45,7 +45,7 @@ item.Name = functionNameHere(largeConfigObject)
 ```
 
 # Unit test logic
-- Unit testing IO is not particularly realstic and can easily diverge from reality and give false positives, as well as being more code to write and maintain
+- Unit testing IO is not particularly realistic and can easily diverge from reality and give false positives, as well as being more code to write and maintain
 - Unit testing logic gives confidence on tough to understand processing
 
 # Integration testing the API
