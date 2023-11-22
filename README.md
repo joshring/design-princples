@@ -63,7 +63,6 @@ item.Name = functionNameHere(largeConfigObject)
 - Prefer to avoid mocks, they can easily give false positives.
 - If something needs a lot of mocks and can't be replicated easily in Docker, it might be better to test against "testing infrastructure"
 - "testing infrastructure" gives us real signals about if the tests passed or not
-- If cost prohibitive then consider manual testing when that code has changed, which is expected to be rare.
 
 
  
