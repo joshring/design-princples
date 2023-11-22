@@ -24,6 +24,7 @@
 - This makes it easier to find and reason about code related to a particular domain
 - The package forms an inituitive namespace so that naming becomes easier, eg `items.Validate()` cannot be confused with `users.Validate()`
 - Packages make a clearer namespace than a struct
+- Packages may be nested without adding additional confusion, eg models/user  could be two different packages one inside the other
 - Prefer functions over methods on a struct, as then we have less noise from otherwise empty structs and it's clearer what the function's input is, see below.
 
 # Explicit inputs and outputs
