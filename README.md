@@ -1,16 +1,89 @@
+# Formatting
+
+Let's start with an example and we'll see what this gives us:
+
+```go
+// FunctionName adds RefreshToken to the database
+func FunctionName(
+    db *sql.DB,
+    timeNow time.Time,
+    refreshToken *RefreshToken,
+    session *HttpSession,
+    sessionEncryptionKey []byte,
+) error {
+
+    // Function body
+    if session == nil || session.Data.Secret == "" {
+        return errors.New("missing session secret")
+    }
+    ...
+    return nil
+}
+```
+## Each line has unique information
+
+- Function docstring
+- Function name
+- Function arguments
+- Function return type
+- Line break to distinguish function signature from function body
+- Function body
+- Function return
+
+# Function Naming
+
+Follow current Go standard using standard camel case for whole name including acronyms, for example:
+
+`FunctionNameApi`, `FunctionNameFindById`, `AuthOtp` 
+
+As opposed to:
+
+`FunctionNameAPI`, `FunctionNameFindByID`, `AuthOTP`
+
+Since they read easier in larger names
+
+
+## Database functions
+
+`{FunctionName}UsingDb`
+
+For example:
+
+`FindRefreshTokenByIdUsingDb`
+
+
+
+## Api functions
+
+
+`{FunctionName}{HttpMethod}Api`
+
+
+For example:
+
+`UsersGetApi`
+
+`UsersPostApi`
+
+`UsersDeleteApi`
+
+
+
 # Design Ideas
 
 ## Code locality
 - Locate code used together in the same file if possible
 - If not possible prefer the same package
 - Avoid many small files as it makes code harder to read
+- If a function is only used once consider inlining the code
+- If inlining what was previously a function, prefer comment blocks to show the code sections, like you would with a chapter in a book. Code is meant to be read and the less jumping around to read it the easier the flow of logic will be to follow. 
 
 ## Use interfaces sparingly
 - In most cases we can use a function from a package to achieve what we have done with an interface.
 - Where we need generalisation we can pass a function as an argument to another function.
 
 ## Structs
-- If a struct has a single member, there is little value in the struct and it's likely adding noise
+- If a struct has a single member, there is likely little value in the struct and it's likely adding noise, consider using a temporary anoymous struct if you need to.
 
 ## Prefer longer functions to fragmentation
 - Highly fragmented code is hard to read, small functions break the flow of the reader, especially when the function is far away and a comment can have the same effect as the function name without affecting the reader's flow.
@@ -19,6 +92,9 @@
 
 ## Prefer standards to custom wrappers
 - Try to use more standard objects as they have more predictable behaviour, augment their behaviour by calling custom functions
+
+## Prefer standard types to putting custom names on standard types
+- If a parameter is an `any` prefer to call it as such, as opposed to using a new name to describe that.
 
 ## Packages are for solving one particular problem
 - Try to limit the scope of a package to one problem, for instance "items" related code would naturally form a package, including what is currently in api and db
