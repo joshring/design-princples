@@ -122,6 +122,12 @@ Rather than
 item.Name = functionNameHere(largeConfigObject)
 ```
 
+## Struct members vs functions with more parameters
+- **The most important thing a function can do with it's signature (inputs and outputs) is show what changed and what data was needed to change it**.
+- The opposite of this is a method on a struct with no arguments, it is not clear what changed or which data in the struct was used to make that change.
+- Making side effects helps build a mental model of the interactions of different parts of the system and how they interract
+
+
 # Unit test logic
 - Unit testing IO is not particularly realistic and can easily diverge from reality and give false positives, as well as being more code to write and maintain
 - Unit testing logic gives confidence on tough to understand processing
