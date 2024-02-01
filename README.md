@@ -67,7 +67,40 @@ For example:
 
 `UsersDeleteApi`
 
+## Calling Functions
 
+Current idea is to split lines for args when more than 2 arguments
+```go
+value := functionName(arg1, arg2)
+```
+
+```go
+value := functionName(
+    arg1,
+    arg2,
+    arg3,
+)
+```
+or when using a `slice` or `struct`
+
+```go
+value := functionName(
+    arg1,
+    []string{
+        "entry1",
+        "entry2",
+    },
+)
+```
+```go
+value := functionName(
+    arg1,
+    myStruct{
+        A: "entry1",
+        B: "entry2",
+    },
+)
+```
 
 # Design Ideas
 
