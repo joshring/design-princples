@@ -108,10 +108,10 @@ value := functionName(
 Breaking a line at 100 chars is a good idea:
 ```go
 // a bit harder to read
-value := functionName(argument1IsQuiteLong, argument2IsQuiteLong, argument3IsQuiteLong)
+value := functionNameIsQuiteLongHere(argument1IsQuiteLong, argument2IsQuiteLong, argument3IsQuiteLong)
 
 // prefer this:
-value := functionName(
+value := functionNameIsQuiteLongHere(
     argument1IsQuiteLong,
     argument2IsQuiteLong,
     argument3IsQuiteLong,
