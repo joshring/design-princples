@@ -82,8 +82,7 @@ value := functionName(
     arg4,
 )
 ```
-Unless the arguments are long on screen, in which case split lines, for instance when using a `slice` or `struct` or a `function call` as input
-Or if the line length is >100
+Unless the arguments are long on screen, in which case split lines, for instance when using a `slice` or `struct` or a `function call` as input. Or if the line length is >100
 
 ```go
 value := functionName(
