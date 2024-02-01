@@ -69,9 +69,9 @@ For example:
 
 ## Calling Functions
 
-Current idea is to split lines for args when more than 2 arguments
+Split lines for args when more than 3 arguments 
 ```go
-value := functionName(arg1, arg2)
+value := functionName(arg1, arg2, arg3)
 ```
 
 ```go
@@ -79,17 +79,15 @@ value := functionName(
     arg1,
     arg2,
     arg3,
+    arg4,
 )
 ```
-or when using a `slice` or `struct`
+Unless the arguments are long on screen, in which case split lines, for instance when using a `slice` or `struct` as input
 
 ```go
 value := functionName(
     arg1,
-    []string{
-        "entry1",
-        "entry2",
-    },
+    []string{"entry1", "entry2"},
 )
 ```
 ```go
@@ -99,6 +97,12 @@ value := functionName(
         A: "entry1",
         B: "entry2",
     },
+)
+```
+```go
+value := functionName(
+    arg1,
+    complex.Nested.Deeply.LongFuncCall(param1, param2),
 )
 ```
 
