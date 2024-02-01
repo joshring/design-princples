@@ -106,10 +106,6 @@ value := functionName(
 )
 ```
 
-## Package exported functions and testing
-- Testing is easier separated to a separate package to avoid circular dependencies between other packages being introduced where there is an otherwise perfectly fine one way package dependency in the non-testing package, eg between the `user` and `auth` packages.
-- Make public only what you need to from a package, ie things you need from the testing package should be available and the core functionality, prefer private if the outside world doesn't need a function or variable.
-
 # Design Ideas
 
 ## Code locality
@@ -168,26 +164,30 @@ item.Name = functionNameHere(largeConfigObject)
 - The opposite of this is a method on a struct with no arguments, it is not clear what changed or which data in the struct was used to make that change.
 - Making side effects explicit helps build a mental model of the interactions of different parts of the system and how they interract
 
+# Unit testing
 
-# Unit test logic
+## Unit test logic
 - Unit testing IO is not particularly realistic and can easily diverge from reality and give false positives, as well as being more code to write and maintain
 - Unit testing logic gives confidence on tough to understand processing
 
-# Integration testing the API
+## Integration testing the API
 - Docker compose env started prior to running tests
 - Tests hit as close to real env as we can
 - Tests are quick as no network involved as all local in Docker
 - Stateful tests need set up and tare down steps which can be automated, eg DELETE, PUT
 - Non-Stateful tests could be done against a fixed set of data, eg GET
 
-# Confidence driven testing
+## Confidence driven testing
 - Unit or integration tests are most valuable where something is critically important or it is non-trivial to validate something is correct
 - Conversely if we accumulate tests which don't really give us real confidence, we just burden ourselves with fragile test code to maintain
 
-# Tests requiring infrastructure
+## Tests requiring infrastructure
 - Prefer to avoid mocks, they can easily give false positives.
 - If something needs a lot of mocks and can't be replicated easily in Docker, it might be better to test against "testing infrastructure"
 - "testing infrastructure" gives us real signals about if the tests passed or not
 
 
- 
+## Package exported functions and testing
+- Testing is easier separated to a separate package to avoid circular dependencies between other packages being introduced where there is an otherwise perfectly fine one way package dependency in the non-testing package, eg between the `user` and `auth` packages.
+- Make public only what you need to from a package, ie things you need from the testing package should be available and the core functionality, prefer private if the outside world doesn't need a function or variable.
+
