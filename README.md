@@ -106,6 +106,10 @@ value := functionName(
 )
 ```
 
+## Package exported functions and testing
+- Testing is easier separated to a separate package to avoid circular dependencies between other packages being introduced where there is an otherwise perfectly fine one way package dependency in the non-testing package, eg between the `user` and `auth` packages.
+- Make public only what you need to from a package, ie things you need from the testing package should be available and the core functionality, prefer private if the outside world doesn't need a function or variable.
+
 # Design Ideas
 
 ## Code locality
